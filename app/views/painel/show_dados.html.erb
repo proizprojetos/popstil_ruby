@@ -1,0 +1,54 @@
+<%= render partial:"menu" %>
+<h5><%= notice %></h5>
+<div class="container">
+	<div class="row">
+		<div class="span12 direita">
+			<%= link_to 'Editar', painel_editar_path %>
+		</div>
+		<div class="span12">
+			<h2>Dados pessoais</h2>
+		</div>		
+		<div class="span8">
+			Nome: <span><%= @user.nome+' '+@user.sobrenome %></span>
+		</div>
+		<div class="span8">
+			CPF: <span><%= @user.cpf %></span>
+		</div>
+		<div class="span8">
+			Date de nascimento: <span><%= @user.data_nascimento %></span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<h2>Endereços cadastrados</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12 direita">
+			<%= link_to 'Adicionar novo endereco', adicionar_endereco_path %>
+		</div>	
+	</div>
+	<% @user.endereco.each do |endereco| %>
+		<div class="row">
+			<div class="span8">
+				<% if endereco.principal == '1' %>
+					Endereco principal
+					<br/>
+				<% else %>
+					<%= link_to 'Definir como endereco principal', definirendereco_path(endereco.id), :method=>:definir_endereco %>
+				<% end %>
+			</div>
+			
+			<div class="span8">
+				CEP: <span><%= endereco.cep%></span>
+			</div>
+			<div class="span8">
+				Endereco: <span><%= endereco.endereco%></span>
+			</div>
+			<div class="span8">
+				Número: <span><%= endereco.numero%></span>
+			</div>
+		</div>
+		<br/>
+	<% end %>
+</div>

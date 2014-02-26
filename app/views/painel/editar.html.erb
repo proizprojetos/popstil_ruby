@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<div id="corpo_cadastro" class="container">
+	<h3>CADASTRO PESSOA FÍSICA</h3>
+<hr class="linha_divisao"/>
+<div class="row">
+	<%= form_for @user, :url => {:id => @user.id},  :html => { :method => :put } do |f| %>
+	<%= render 'form', :f => f %>
+	<div class="row">
+		<div class="span12" style="text-align: right">
+			<hr class="linha_divisao"/>
+	    	<%= f.submit('Salvar edição') %>
+	  	</div>
+	</div>
+	<% end %>
+</div>

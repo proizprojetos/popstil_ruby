@@ -1,0 +1,72 @@
+<div id="corpo_cadastro" class="container">
+	<div class="row">
+		|<div class="span12">
+			<h3>CADASTRO DE ENDEREÇO</h3>
+			<hr class="linha_divisao"/>
+		</div>
+		<% if @endereco.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@endereco.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+			
+			      <ul>
+			      <% @endereco.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+		  	<% end %>
+		<%= form_for @endereco, :url => adicionar_endereco_path, :html => {:method => 'put'} do |endereco_form|%>
+			<div class="cadastro_input">
+				<div class="span12">
+					<%= endereco_form.text_field :cep, placeholder: 'CEP' %>
+				</div>
+			</div>
+			<div class="cadastro_input">
+				<div class="span12">
+					<%= endereco_form.label :tipo_endereco, 'Identificacao do endereço'%>	
+				  	<%= endereco_form.radio_button :tipo_endereco, 'Casa' %>Casa
+				  	<%= endereco_form.radio_button :tipo_endereco, 'Apartamento' %>Apto
+				  	<%= endereco_form.radio_button :tipo_endereco, 'Comercial' %>Comercial
+				</div>
+			</div>
+			<div class="cadastro_input">
+				<div class="span12">
+					<%= endereco_form.text_field :endereco, placeholder: 'Endereço' %>
+				</div>
+			</div>
+			<div class="cadastro_input">
+				<div class="span12">
+					<%= endereco_form.text_field :numero, placeholder: 'Número' %>
+				</div>
+			</div>
+			<div class="cadastro_input">
+				<div class="span12">
+					<%= endereco_form.text_field :complemento, placeholder: 'Complemento' %>
+				</div>
+			</div>
+			<div class="cadastro_input">
+				<div class="span3">
+					<%= endereco_form.text_field :bairro, placeholder: 'Bairro' %>
+				</div>
+			</div>
+			<div class="cadastro_input">
+				<div class="span7">
+					<%= endereco_form.text_field :cidade, placeholder: 'Cidade' %>
+				</div>
+			</div>
+			<div class="cadastro_input">
+				<div class="span12">
+					<%= endereco_form.text_field :estado, placeholder: 'Estado' %>
+				</div>
+			</div>
+			<div class="span12">
+				<hr class="linha_divisao">
+			</div>
+			<div class="cadastro_input" style="text-align: right">
+				<div class="span12">
+					<%= endereco_form.submit('Salvar endereco')%>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

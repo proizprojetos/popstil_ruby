@@ -1,0 +1,43 @@
+<div class="login_form container">
+	<div class="row titulo">
+		<div class="span1" ></div>
+		<div class="span10">
+			<h2>Acesse sua conta</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span1"></div>
+		<div class="divlogin1 span5">
+			<% if flash[:alert] %>
+				<p id="notice"><%= flash[:alert] %></p>
+			<% end %>
+			<div id="login" class="sub-divlogin1">
+				<%= form_tag do %>
+					<fieldset>
+						<div>
+							<%= text_field_tag :email, params[:email], placeholder: 'E-mail' %>
+						</div>			
+						<div>
+							<%= password_field_tag :password, params[:password], placeholder: 'Senha' %>
+						</div>			
+						<div class="bt_login">
+							<%= submit_tag 'Continuar', remote: true %>
+						</div>
+					</fieldset>
+				<% end %>
+			</div>
+		</div>
+		<div class="span1"></div>
+		<div class="divlogin2 span5">
+			<h4><%= image_tag "seguro.png" %>Ambiente seguro</h4>
+			<h2>Ainda não tem um cadastro?</h2>
+			<h3>Cadastre-se agora e comece a comprar!</h3>
+			<div class="login2bt">
+				<div class="bt_azul">
+					<%= link_to 'Novo cliente', painel_cadastrar_path %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

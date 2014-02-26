@@ -1,0 +1,67 @@
+// Place all the styles related to the Painel controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#corpo_cadastro {
+  margin-bottom: 200px;
+  input, select {
+    border-radius: 0;
+    background: #f1f2f2;
+    padding: 11px 3px 9px 10px;
+    border: 1px solid #eaeaea;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  select {
+    height: 42px;
+  }
+  
+  input[type="submit"] {
+    margin: 0px 0px 11px 6px;
+    padding: 2px 22px 2px 22px;
+    background: #41c4dd;
+    color: #fff;
+    box-shadow: inset 2px 2px 4px #0487a0;
+    -moz-box-shadow: inset 2px 2px 4px #0487a0;
+    -webkit-box-shadow: inset 2px 2px 4px #0487a0;
+    border: none;
+  }
+  input[type="radio"]{
+    margin: 0 8px 2px 8px;
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
+    -ms-appearance: checkbox;
+    -o-appearance: checkbox; 
+  }
+  
+  .msgCadastro {
+    img {
+      float: left;
+    }
+    .msgCadastroTexto {
+      margin: 55px 70px 0 160px;
+        h2 {
+          line-height: 44px;
+          font-weight: normal;
+          font-family: 'din_light';
+          font-size: 36px;
+          color: #58595b;
+          }
+         h4 {
+          margin-top: 35px;
+          line-height: 24px;
+          font-weight: normal;
+          font-family: 'din_light';
+          font-size: 18px;
+          color: #58595b;
+        }
+     }
+  }
+  
+}
+
+
+.painel_menu {
+  ul>li>a {
+    color: #555 !important;
+  }
+}

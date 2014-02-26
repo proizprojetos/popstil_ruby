@@ -1,0 +1,66 @@
+<div id="corpo_cadastro" class="container">
+	<h3>CADASTRO PESSOA FÍSICA</h3>
+<hr class="linha_divisao"/>
+<div class="row">
+	<%= form_for @user, :url => painel_path do |f| %>
+		<%= render 'form', :f => f %>
+		<div class="row">
+			<div class="span12">
+				<h3>CADASTRO DE ENDEREÇO</h3>
+				<hr class="linha_divisao"/>
+			</div>
+			<%= f.fields_for :endereco do |endereco_form|%>
+				<div class="cadastro_input">
+					<div class="span12">
+						<%= endereco_form.text_field :cep, placeholder: 'CEP' %>
+					</div>
+				</div>
+				<div class="cadastro_input">
+					<div class="span12">
+						<%= endereco_form.label :tipo_endereco, 'Identificacao do endereço', style: 'display:inline-block;margin: 10px 50px 20px 0px; '%>	
+					  	<%= endereco_form.radio_button :tipo_endereco, 'Casa' %>Casa
+					  	<%= endereco_form.radio_button :tipo_endereco, 'Apartamento' %>Apto
+					  	<%= endereco_form.radio_button :tipo_endereco, 'Comercial' %>Comercial
+					  	<%= endereco_form.radio_button :tipo_endereco, 'Outro' %>Outro
+					</div>
+				</div>
+				<div class="cadastro_input">
+					<div class="span12">
+						<%= endereco_form.text_field :endereco, placeholder: 'Endereço' %>
+					</div>
+				</div>
+				<div class="cadastro_input">
+					<div class="span12">
+						<%= endereco_form.text_field :numero, placeholder: 'Número' %>
+					</div>
+				</div>
+				<div class="cadastro_input">
+					<div class="span12">
+						<%= endereco_form.text_field :complemento, placeholder: 'Complemento' %>
+					</div>
+				</div>
+				<div class="cadastro_input">
+					<div class="span3">
+						<%= endereco_form.text_field :bairro, placeholder: 'Bairro' %>
+					</div>
+				</div>
+				<div class="cadastro_input">
+					<div class="span7">
+						<%= endereco_form.text_field :cidade, placeholder: 'Cidade' %>
+					</div>
+				</div>
+				<div class="cadastro_input">
+					<div class="span12">
+						<%= endereco_form.text_field :estado, placeholder: 'Estado' %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="row">
+			<div class="span12" style="text-align: right">
+				<hr class="linha_divisao"/>
+		    	<%= f.submit('Continuar') %>
+		  	</div>
+		</div>
+	<% end %>
+</div>
